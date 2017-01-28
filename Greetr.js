@@ -6,7 +6,7 @@
 
 
 //IIFE that creates a safe structure for Greetr library initialization
-(function (global, $) {
+;(function (global, $) {
     var Greetr = function(firstName, lastName, language) {
 
         //return results of a different function constructor so that 'new' keyword is not needed
@@ -18,10 +18,11 @@
     //initializes a new Greetr object
     Greetr.init = function(firstName, lastName, language) {
         var self = this;
-
         self.firstName = firstName || 'John';
         self.lastName = lastName || 'Doe';
         self.language = language || 'en';
+
+        self.validate();
     }
     
     //globals
@@ -82,6 +83,7 @@
                   console.log(logMessages[this.language] + ':' + this.fullName + '.');
               }
 
+              //chainable
               return this;
           },
 
@@ -92,6 +94,7 @@
                   throw "Invalid language!";
               }
 
+              //chainable
               return this;
           },
 
@@ -115,6 +118,7 @@
              //set html of selector to greeting
              $(selector) .html(msg);
 
+             //chainable
              return this;
           }
       };
