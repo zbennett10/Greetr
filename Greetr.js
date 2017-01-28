@@ -41,9 +41,6 @@
          es: 'Inicio sesion'
      }
 
-     //any objects created with init function point to Greetr prototype chain
-    Greetr.init.prototype = Greetr.prototype;
-
       //helper methods on Greetr prototype chain
       Greetr.prototype = {
           fullName: function() {
@@ -61,7 +58,7 @@
           },
 
           formalGreeting: function() {
-              return formalGreetings[this.language] + ',' + this.fullName + '.';
+              return formalGreetings[this.language] + ',' + ' ' + this.firstName + '.';
           },
 
           greet: function(formal) {
@@ -70,7 +67,7 @@
                   msg = this.formalGreeting();
               }
               else {
-                  msg = this.greeting()
+                  msg = this.greeting();
               }
               if(console) {
                   console.log(msg);
@@ -98,6 +95,9 @@
               return this;
           }
       };
+
+      //any objects created with init function point to Greetr prototype chain
+       Greetr.init.prototype = Greetr.prototype;
 
     //both Greetr and G$ point to Greetr library
     global.Greetr = global.G$ = Greetr;
