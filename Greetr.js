@@ -93,6 +93,29 @@
               }
 
               return this;
+          },
+
+         HTMLGreet: function(selector, formal) {
+             if(!$) {
+                 throw 'jQuery not loaded';
+             }
+
+             if(!selector) {
+                 throw 'Missing jQuery selector';
+             }
+
+             var msg;
+             if(formal) {
+                 msg = this.formalGreeting();
+             }
+             else {
+                 msg = this.greeting();
+             }
+
+             //set html of selector to greeting
+             $(selector) .html(msg);
+
+             return this;
           }
       };
 
