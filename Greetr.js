@@ -24,5 +24,9 @@
         self.language = language || 'en';
     }
     
+    //any objects created with init function point to Greetr prototype chain
+    Greetr.init.prototype = Greetr.prototype;
 
+    //both Greetr and G$ point to Greetr library
+    global.Greetr = global.G$ = Greetr;
 }(window, jQuery));
